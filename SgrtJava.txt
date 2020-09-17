@@ -1,0 +1,117 @@
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+
+	
+
+package testapplication3;
+ 
+import java.io.IOException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+ 
+public class Main {
+    static float a, b, c;
+    static float d;
+    static double x1, x2;
+ 
+    public static void main(String args []) throws IOException {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Решение квадратного уравнения");
+        while (true) {
+            try {
+                System.out.println("Введите 'c' чтобы продолжать или любой другой символ для выхода");
+                String str = s.next();
+                if (!str.equals("c")) {
+                    s.close();
+                    System.exit(0);
+                }
+                System.out.print("Введите значение a -> ");
+                a = s.nextFloat();
+                System.out.print("Введите значение b -> ");
+                b = s.nextFloat();
+                System.out.print("Введите значение c -> ");
+                c = s.nextFloat();
+                System.out.println("a = " + a + " b = " + b + " c = " + c);
+ 
+                d = (b * b) - (4 * a * c);
+ 
+                System.out.println("Дискриминант = " + d);
+ 
+                if(d < 0)
+                 System.out.print("Уравнение не имеет решений!!!");
+                else
+                if(d == 0) {
+                    x1 = (-b) / (2 * a);
+                     System.out.println ("x = " + x1);
+                }
+                else {
+                    x1 = (-b + Math.sqrt(d)) / (2 * a);
+                    x2 = (-b - Math.sqrt(d)) / (2 * a);
+                    if (x1 == x2) {
+                        System.out.println ("x1 = x2 " + x1);
+                    } else {
+                        System.out.println ("x1 =  " + x1 + "  x2 = " + x2);
+                    }
+                }
+            } catch(InputMismatchException e){
+                System.out.println("!!!Ошибка ввода!!!");/**/
+            }
+        }
+    }
+}
+
+/*https://www.cyberforum.ru/java-j2se/thread274963.html*/
